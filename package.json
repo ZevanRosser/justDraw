@@ -1,0 +1,27 @@
+{
+  "name": "justdraw",
+  "version": "0.0.1",
+  "description": "just start drawing with code",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZevanRosser/justDraw.git"
+  },
+  "keywords": [
+    "canvas",
+    "drawing",
+    "shapes",
+    "utils",
+    "boilerplate",
+    "prototyping"
+  ],
+  "author": "Zevan Rosser",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ZevanRosser/justDraw/issues"
+  },
+  "homepage": "https://github.com/ZevanRosser/justDraw#readme"
+}
