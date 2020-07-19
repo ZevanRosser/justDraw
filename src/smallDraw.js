@@ -7,7 +7,11 @@
       document[add](e, h);
       return on;
     },
-    off = document[remove];
+    off = document[remove],
+    defaultConfig = {
+      retina: true,
+      styleBody: true
+    };
 
   function touchify(e) {
     var touch = [];
@@ -26,11 +30,6 @@
 
     return touch;
   }
-
-  var defaultConfig = {
-    retina: true,
-    styleBody: true
-  };
 
   function smallDraw(userFn, config) {
     if (userFn == null) return;
