@@ -17,11 +17,10 @@ smallDraw(({ canvas, c, resize, draw }) => {
       this.damp = 40 + Math.random() * 50;
       if (Math.random() < 0.1) this.hasShade = true;
 
-      let c = (this.c = Math.round(Math.random() * 100));
-      let cd = (this.cd = Math.round(Math.random() * 255));
+      this.c = Math.round(Math.random() * 100);
+      this.cd = Math.round(Math.random() * 255);
       let a = (this.a = 0.1);
       if (Math.random() < 0.1) a += Math.random() * Math.random();
-      this.col = `rgba(${c}, ${c}, ${c}, ${a})`;
 
       setTimeout(() => {
         this.paused = false;
@@ -45,8 +44,8 @@ smallDraw(({ canvas, c, resize, draw }) => {
 
       c.fillStyle = 3;
       this.c += (this.cd - this.c) / this.damp;
-      var cc = Math.round(this.c);
-      this.col = `rgba(${cc}, ${cc}, ${cc}, ${this.a})`;
+      let rc = Math.round(this.c);
+      this.col = `rgba(${rc}, ${rc}, ${rc}, ${this.a})`;
 
       c.fillStyle = this.col;
       c.beginPath();
