@@ -111,8 +111,10 @@ smallDraw(({ canvas, c, resize, draw }) => {
     c.save();
     c.scale(0.65, 0.65);
     for (let i = 0; i < NUM; i++) {
-      if (i === 0) {
+      if (i === NUM - 2) {
         syms[i].draw(0.001, 'rgba(0, 0, 0, 0.54)');
+      } else if (i > NUM - 2) {
+        syms[i].draw(0.001, 'rgba(255, 255, 255, 0.44)');
       } else {
         syms[i].draw(Math.random(), 'rgba(0, 0, 0, 0.14)');
       }
