@@ -99,7 +99,9 @@
       canvas.style.height = winH + 'px';
 
       userDraw({
-        touch: touch
+        touch: touch,
+        w: window.innerWidth / 100,
+        h: window.innerHeight / 100
       });
       userResize();
     }
@@ -118,21 +120,25 @@
       ctx: c,
       c: c,
       draw: draw,
-      resize
-    });
-
-    return {
+      resize,
       play: function() {
         draw();
       },
       pause: function() {
         window.cancelAnimationFrame(drawId);
       },
-      destroy: function() {
+
+      destroy: function(keepCanvas) {
+        window.cancelAnimationFrame(drawId);
         window[remove]('resize', onResize);
         off('mousemove', onMove)('touchmove', onMove);
+        if (!keepCanvas) {
+          if (canvas.parentNode != null) canvas.parentNode.removeChild(canvas);
+          canvas = null;
+          c = null;
+        }
       }
-    };
+    });
   }
 
   if (typeof exports === 'object' && typeof module === 'object') {
