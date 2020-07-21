@@ -51,7 +51,7 @@
       userDraw = emptyFn,
       touch = [],
       drawId,
-      delta;
+      elapsed;
 
     touch.x = touch.y = 0;
     touch.down = false;
@@ -64,26 +64,28 @@
     }
 
     function draw(userDrawFn) {
-      if (typeof userDrawFn === 'function') {
-        userDraw = userDrawFn;
+      userDraw = userDrawFn;
+
+      function loop(time) {
+        if (pixelRatio !== 1) {
+          c.save();
+          c.scale(pixelRatio, pixelRatio);
+        }
+
+        userDraw({
+          touch: touch,
+          w: window.innerWidth / 100,
+          h: window.innerHeight / 100,
+          time: time
+        });
+
+        if (pixelRatio !== 1) {
+          c.restore();
+        }
+
+        drawId = window.requestAnimationFrame(loop);
       }
-
-      if (pixelRatio !== 1) {
-        c.save();
-        c.scale(pixelRatio, pixelRatio);
-      }
-
-      userDraw({
-        touch: touch,
-        w: window.innerWidth / 100,
-        h: window.innerHeight / 100
-      });
-
-      if (pixelRatio !== 1) {
-        c.restore();
-      }
-
-      drawId = window.requestAnimationFrame(draw);
+      loop();
     }
 
     function resize(userResizeFn) {

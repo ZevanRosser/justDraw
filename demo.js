@@ -7,7 +7,7 @@ smallDraw(({ canvas, ctx, resize, draw }) => {
     ctx.fillRect(0, 0, canvas.width, canvas.height);
   });
 
-  draw(({ touch, w, h }) => {
+  draw(({ touch, w, h, time }) => {
     ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     ctx.fillStyle = 'red';
@@ -19,6 +19,8 @@ smallDraw(({ canvas, ctx, resize, draw }) => {
     );
 
     ctx.fillStyle = 'blue';
-    ctx.fillRect(0, 0, w * 10, h * 10);
+    // draw a box 1/10 the size of the window
+    ctx.fillRect(0, 0, 10 * w, 10 * h);
+    console.log(time);
   });
 });
