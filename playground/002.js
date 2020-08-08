@@ -70,7 +70,7 @@ smallDraw(({ canvas, c, resize, draw }) => {
       this.by = ((this.py - this.dy) / 7 + this.by) / 1.2;
 
       if (this.prevX != null) {
-        if (inter < this.drawChance || this.allow == true) {
+        if (inter < this.drawChance || this.allow) {
           this.allow = true;
           setTimeout(() => {
             this.allow = false;

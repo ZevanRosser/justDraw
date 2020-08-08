@@ -2,7 +2,7 @@
   var emptyFn = function() {},
     body = document.body,
     add = 'addEventListener',
-    remove = 'addEventListener',
+    remove = 'removeEventListener',
     on = function(e, h) {
       document[add](e, h);
       return on;
@@ -122,7 +122,7 @@
       ctx: c,
       c: c,
       draw: draw,
-      resize,
+      resize: resize,
       play: function() {
         draw();
       },
