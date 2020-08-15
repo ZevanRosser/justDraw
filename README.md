@@ -20,7 +20,7 @@ smallDraw({ canvas, ctx, c, resize, draw, pause, play, destroy }) => {
   draw(({ touch, w, h, time }) => {
     // called 60fps
     // `touch` contains `x` and `y` properties for the mouse location
-    //  these are identical to `touch[0]` and `touch[1]`
+    //  these are identical to `touch[0].clientX` and `touch[0].clientY`
     // @TODO
   });
 
