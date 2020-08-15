@@ -123,13 +123,13 @@
       c: c,
       draw: draw,
       resize: resize,
+
       play: function() {
         draw();
       },
       pause: function() {
         window.cancelAnimationFrame(drawId);
       },
-
       destroy: function(keepCanvas) {
         window.cancelAnimationFrame(drawId);
         window[remove]('resize', onResize);
